@@ -1,1 +1,1 @@
-# wma-docker-java
+# USGS Water Mission Area Java Docker base images
