@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker tag $IMAGE_NAME $DOCKER_REPO:openjdk-11-$SOURCE_COMMIT
-docker push $DOCKER_REPO:openjdk-11-$SOURCE_COMMIT
+docker tag $IMAGE_NAME $DOCKER_REPO:debian-stretch-openjdk-11-$SOURCE_COMMIT
+docker push $DOCKER_REPO:debian-stretch-openjdk-11-$SOURCE_COMMIT
