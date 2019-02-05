@@ -1,4 +1,3 @@
 #!/bin/bash
 
-echo $(ls -al)
-docker build -f openjdk-11/Dockerfile -t openjdk-11:test
+docker build -f openjdk-11/ -t openjdk-11:test .
