@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker build -t usgswma/openjdk:test-image-$SOURCE_COMMIT .

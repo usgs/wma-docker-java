@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker tag -t $IMAGE_NAME $DOCKER_REPO:openjdk-11-$SOURCE_COMMIT
+docker push $DOCKER_REPO:openjdk-11-$SOURCE_COMMIT
