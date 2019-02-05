@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo $(ls -al)
-docker build -f $DOCKERFILE_PATH -t openjdk-11:test
+docker build -f openjdk-11/Dockerfile -t openjdk-11:test
