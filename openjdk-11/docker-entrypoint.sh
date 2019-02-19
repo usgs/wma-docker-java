@@ -25,6 +25,4 @@ file_env_wrapper() {
 file_env_wrapper ${COMMON_DATA_DIRECTORY}
 file_env_wrapper ${APPLICATION_DATA_DIRECTORY}
 
-$HOME/launch-app.sh
-
 exec "$@"
