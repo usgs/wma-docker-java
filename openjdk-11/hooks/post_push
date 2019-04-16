@@ -1,5 +1,5 @@
 #!/bin/bash
 
-TAG_NAME=$DOCKER_REPO:debian-stretch-openjdk-11.0.2-$SOURCE_COMMIT
+TAG_NAME=$DOCKER_REPO:debian-stretch-openjdk-11.0.3-$SOURCE_COMMIT
 docker tag $IMAGE_NAME $TAG_NAME
 docker push $TAG_NAME
