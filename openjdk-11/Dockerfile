@@ -1,4 +1,4 @@
-FROM openjdk:11.0.2-jre-slim-stretch
+FROM openjdk:11.0.3-jre-slim-stretch
 
 LABEL maintainer="gs-w_eto_eb_federal_employees@usgs.gov"
 
