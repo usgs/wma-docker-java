@@ -8,4 +8,3 @@ ENV HOME=/home/$USER
 RUN adduser --disabled-password --gecos "" -u 1000 $USER
 
 WORKDIR $HOME
-ENTRYPOINT []
