@@ -1,0 +1,47 @@
+sudo: required
+
+env:
+  - service=11.0.5-jre-slim
+
+  global:
+    - DOCKER_COMPOSE_VERSION=1.22.0
+    - DOCKER_IMAGE=wma-docker-java
+
+services:
+  - docker
+
+before_install:
+  - sudo apt-get update
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - curl -L https://github.com/arminc/clair-scanner/releases/download/v8/clair-scanner_linux_amd64 > clair-scanner
+  - chmod +x clair-scanner
+  - sudo mv clair-scanner /usr/local/bin
+  - git clone https://github.com/docker/docker-bench-security.git
+
+install:
+  - docker-compose up --detach --build $service
+
+script:
+  - |
+    count=1
+    limit=120
+    until docker ps --filter "name=$DOCKER_IMAGE" --filter "health=healthy" --format "{{.Names}}" | grep "$DOCKER_IMAGE"
+    do
+      echo "Testing container health $count of $limit"
+      if [ $count -eq $limit ]; then
+        echo "Docker container $DOCKER_IMAGE"
+        exit 1
+      fi
+      sleep 1
+      count=$((count + 1))
+    done
+    echo "Docker container $DOCKER_IMAGE is up and healthy"
+  - cd docker-bench-security
+  - sudo sh docker-bench-security.sh -c container_images
+  - docker run -d --name db arminc/clair-db
+  - docker run -p 6060:6060 --link db:postgres -d --name clair arminc/clair-local-scan:v2.0.6
+  - clair-scanner -c "http://127.0.0.1:6060" --ip "$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')" $DOCKER_IMAGE:$service || true
