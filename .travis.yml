@@ -18,8 +18,7 @@ before_install:
 
 install:
   - docker build --tag $DOCKER_IMAGE ./openjdk-11
-#   - docker run $DOCKER_IMAGE
-    - docker run -d $DOCKER_IMAGE tail -f /dev/null
+  - docker run -d $DOCKER_IMAGE tail -f /dev/null
 
 script:
   - |
