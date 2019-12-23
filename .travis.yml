@@ -3,7 +3,7 @@ sudo: required
 env:
   global:
     - DOCKER_IMAGE=wma-docker-java
-    - CLAIR_SCAN_VERSION=v2.0.6
+    - CLAIR_SCAN_VERSION=latest
 services:
   - docker
 
@@ -25,5 +25,4 @@ script:
   - sudo sh docker-bench-security.sh -c container_images
   - docker run -d --name clairDatabase arminc/clair-db
   - docker run -p 6060:6060 --link clairDatabase:postgres -d --name clair arminc/clair-local-scan:$CLAIR_SCAN_VERSION
-  - sudo ufw allow 9279
-  - clair-scanner -c "http://127.0.0.1:6060" --ip "$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')" $DOCKER_IMAGE:latest || true
+  - clair-scanner -c "http://127.0.0.1:6060" --ip "$(ip -4 addr show docker0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')" $DOCKER_IMAGE:latest || true
