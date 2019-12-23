@@ -4,4 +4,4 @@ This Docker Image may be extended by USGS WMA Java Docker Images requiring a Jav
 
 ## Usage
 ### Extending the Base Image
-This image is not intended to be run on its own. Other images should inherit from this image to utilize its functionality. 
+This image is not intended to be run on its own. Other images should inherit from this image in order to utilize its functionality. 
