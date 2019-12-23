@@ -22,19 +22,6 @@ install:
 
 script:
   - |
-    count=1
-    limit=120
-    until docker ps --filter "name=$DOCKER_IMAGE" --filter "health=healthy" --format "{{.Names}}" | grep "$DOCKER_IMAGE"
-    do
-      echo "Testing container health $count of $limit"
-      if [ $count -eq $limit ]; then
-        echo "Docker container $DOCKER_IMAGE"
-        exit 1
-      fi
-      sleep 1
-      count=$((count + 1))
-    done
-    echo "Docker container $DOCKER_IMAGE is up and healthy"
   - cd docker-bench-security
   - sudo sh docker-bench-security.sh -c container_images
   - docker run -d --name clairDatabase arminc/clair-db
