@@ -1,37 +1,38 @@
 [
   {
-    "name": "REPOSITORY_NAME",
+    "name": "WMA Docker Java",
     "organization": "U.S. Geological Survey",
-    "description": "REPOSITORY_DESCRIPTION",
-    "version": "RELEASE_VERSION",
-    "status": "RELEASE_STATUS",
+    "description": "WMA Docker Java - docker image to be extended by USGS WMA Java Docker images requiring a Java Run-time Environment (JRE)",
+    "version": "openjdk:11.0.5-jre-slim",
+    "status": "Development",
 
     "permissions": {
       "usageType": "openSource",
       "licenses": [
         {
           "name": "Public Domain, CC0-1.0",
-          "URL": "https://code.usgs.gov/TEAM_NAME/REPOSITORY_NAME/raw/master/LICENSE.md"
+          "URL": "https://github.com/usgs/wma-docker-java/blob/master/LICENSE.md"
         }
       ]
     },
 
-    "homepageURL": "https://code.usgs.gov/TEAM_NAME/REPOSITORY_NAME",
-    "downloadURL": "https://code.usgs.gov/TEAM_NAME/REPOSITORY_NAME/-/archive/master/REPOSITORY_NAME.zip",
-    "disclaimerURL": "https://code.usgs.gov/TEAM_NAME/REPOSITORY_NAME/raw/master/DISCLAIMER.md",
-    "repositoryURL": "https://code.usgs.gov/TEAM_NAME/REPOSITORY_NAME.git",
+    "homepageURL": "https://github.com/usgs/wma-docker-java",
+    "downloadURL": "https://github.com/usgs/wma-docker-java/archive/master.zip",
+    "disclaimerURL": "https://github.com/usgs/wma-docker-java/blob/master/DISCLAIMER.md",
+    "repositoryURL": "https://github.com/usgs/wma-docker-java.git",
     "vcs": "git",
 
-    "laborHours": 0,
+    "laborHours": null,
 
     "tags": [
-      "TOPIC_TAG_1",
-      "TOPIC_TAG_2"
+      "water data",
+      "U.S. Geological Survey",
+      "USGS",
+      "wma"
     ],
 
     "languages": [
-      "PROGRAMMING_LANG_1",
-      "PROGRAMMING_LANG_2"
+      "Java"
     ],
 
     "contact": {
@@ -40,7 +41,7 @@
     },
 
     "date": {
-      "metadataLastUpdated": "YYYY-MM-DD"
+      "metadataLastUpdated": "2020-01-06"
     }
   }
 ]
