@@ -3,7 +3,7 @@
     "name": "WMA Docker Java",
     "organization": "U.S. Geological Survey",
     "description": "WMA Docker Java - docker image to be extended by USGS WMA Java Docker images requiring a Java Run-time Environment (JRE)",
-    "version": "11.5",
+    "version": "11",
     "status": "Development",
 
     "permissions": {
